@@ -4,9 +4,12 @@
 //Create an object called me. Give it a key of name with the value being your name, and another key of age with the value being your age. Then alert your name using dot notation.
 
   //Code here
+var me ={
+  name: "John D'Agostino",
+  age: 26
+}
 
-
-
+alert(me.name)
 
 //NEXT PROBLEM
 
@@ -17,18 +20,29 @@
 
   //Code here
 
+  var favoriteThings={
+    band: "Ramones",
+    food: "sushi",
+    person: "Ali",
+    book: "Harry Potter and the Deathly Hallows",
+    movie: "Defending Your Life",
+    holiday: "Halloween"
+  };
+
 
 //After you've made your object, add another key named 'car' with the value being your favorite car and then another key named 'brand' with the value being your favorite brand.
 
   //Code here
+favoriteThings.car="Toyota";
 
+favoriteThings.brand="Newman's";
 
 //Now change the value of the food key in your favoriteThings object to be 'Chicken Nuggets' and change the value of the book key in your favoriteThings object to be 'Harry Potter'.
 
   //Code here
+favoriteThings.food="Chicken Nuggets";
 
-
-
+favoriteThings.book="Harry Potter";
 
 //NEXT PROBLEM
 
@@ -44,9 +58,19 @@ that is named color, with the value being the color of your backpack. */
 
   //Code here
 
+var backPack={};
+
+var item="firstPocket";
+
+backPack[item]="chapstick";
+
+backPack.color="black";
+
 //After you do the above, alert your entire backPack object.
 
   //Code here
+
+  alert(backPack)
 
 /*You probably noticed that it just alerted [object Object].
 Alerting to see the data in your Object doesn't work so well.
@@ -54,7 +78,7 @@ Instead, console.log your whole backPack object and then check out the console. 
 
   //Code here
 
-
+console.log(backPack)
 
 
 //NEXT PROBLEM
@@ -66,13 +90,27 @@ Instead, console.log your whole backPack object and then check out the console. 
 
   //Code Here
 
+  var alsoMe = {
+    name: "John",
+    age: 26,
+    height: "6 ft",
+    gender: "male",
+    married: false,
+    eyeColor: "green",
+    hairColor: "brown"
+  }
+
 //Now, loop through your object and alert every value. *Tyler --> 24 --> 6'0 --> Male, etc etc
 
   //Code Here
 
+function loop(){
+  for(var x in alsoMe){
+    alert(x);
+  }
+}
 
-
-
+loop()
 //NEXT PROBLEM
 
 
@@ -82,11 +120,24 @@ Instead, console.log your whole backPack object and then check out the console. 
 
   //Code Here
 
+  var album = {
+    "Rockaway Beach": "2:59",
+    "Back Around": "3:35",
+    "Speedster": "2:13",
+    "Sheena is a Punk Rocker": "2:19",
+    "Home": "4:23"
+  }
+
 //Now, loop through your album object alerting every song title individually.
 
   //Code Here
+  function loop2(){
+    for(var x in album){
+      alert(x);
+    }
+  }
 
-
+  loop2()
 
 
 //NEXT PROBLEM
@@ -98,11 +149,27 @@ Instead, console.log your whole backPack object and then check out the console. 
 
   //Code Here
 
+  var states = {
+    157843: "Illinois",
+    49349390: "California",
+    93943: "Alabama",
+    3903902: "Idaho",
+    939000: "Maine"
+  }
+
 //Now, loop through your states object and if the states population is greater than 30K, alert that state.
 
   //Code Here
+function looped(){
+for(var x in states){
+  if(x>30000){
+    alert(states[x])
+  }
+}
 
+}
 
+looped()
 
 
 //NEXT PROBLEM
@@ -123,10 +190,25 @@ that each value is truthy. If it's not truthy, remove it from the object. */
 
   //Code Here
 
+  function truthy(){
+    for(var x in user1){
+      if(!user1[x]){
+delete user1[x];
+      }
+    }
+    return user1;
+
+  }
+
+  truthy()
+
 //Once you get your truthy Object, Change the remaining values in the object to be specific to you (name: 'your name', username: 'your username'), rather than my information.
 
   //Code Here
 
+user1.name= "John D'Agostino";
+user1.pwHash= "89389hhfli";
+user1.username="johnnyboy";
 
 
 
@@ -135,27 +217,29 @@ that each value is truthy. If it's not truthy, remove it from the object. */
 
 
 
-var user2 = {
-        name: 'Tyler McGinnis',
-        age: 24,
-        pwHash: 'U+Ldlngx2BYQk',
-        email: 'tylermcginnis33@gmail.com',
-        birthday: '05/02/1990',
-        username: 'tylermcginnis33',
-        sayEmail: function(){
-            alert('Email is : ' + this.email);
-        }
+function bindCard(perObj, credObj){
+  var obj={};
+
+  obj.push(perObj, credObj);
+
+  return obj;
+}
+
+bindCard();
 };
 //Let's say I, the user, decided to change my name and email address to the following
 // name -> 'Tyler S. McGinnis', email -> 'tyler.mcginnis@devmounta.in'. Make that change.
 
   //Code Here
 
+  user2.name="Tyler S. McGinnis";
+  user2.email="tyler.mcginnis@devmounta.in";
+
 //Now call the sayEmail method that's on the user object which will alert the users email
 
   //Code Here
 
-
+user2.sayEmail();
 
 
 //NEXT PROBLEM
@@ -167,17 +251,27 @@ var user2 = {
 
   //Code Here
 
+  var methodCollection={};
+
 /*Now add two methods (functions that are properties on objects) to your methodCollection
 object. One called 'alertHello' which alerts 'hello' and another method called logHello
  which logs 'hello' to the console. */
 
   //Code Here
 
+  methodCollection.alertHello=function(){
+    alert("hello");
+  }
+
+  methodCollection.logHello=function(){
+    console.log("hello");
+  }
+
 //Now call your alertHello and logHello methods.
 
   //Code Here
-
-
+methodCollection.alertHello();
+methodCollection.logHello();
 
 //NEXT PROBLEM
 
@@ -188,7 +282,16 @@ object. One called 'alertHello' which alerts 'hello' and another method called l
 
   //Code Here
 
-
+// function makePerson(name, birthday, ssn){
+//   var newObj={};
+//
+//   newObj.name=name;
+//   newObj.birthday=birthday;
+//   newObj.ssn=ssn;
+//
+// return newObj;
+//
+// }
 
 //NEXT PROBLEM
 
@@ -198,7 +301,14 @@ object. One called 'alertHello' which alerts 'hello' and another method called l
 
   //Code Here
 
-
+// function makeCard(cardNumber, expirationDate, securityCode){
+//   var newObj={};
+//     newObj.cardNumber=cardNumber;
+//     newObj.expirationDate=expirationDate;
+//     newObj.securityCode=securityCode;
+//
+//   return newObj;
+// }
 
 //NEXT PROBLEM
 
@@ -210,3 +320,12 @@ object. One called 'alertHello' which alerts 'hello' and another method called l
 */
 
   //Code Here
+
+  // function bindCard(perObj, credObj){
+  //   var obj={};
+  //
+  //   obj[perObj]=perObj;
+  //   obj[credObj]=credObj;
+  //
+  //   return obj;
+  // }
